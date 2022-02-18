@@ -3,53 +3,6 @@
 > 이 저장소의 이슈/풀리퀘스트 템플릿은 조직 내 저장소 모두에게 적용됨. 하위 저장소 템플릿이 있는 경우 하위 템플릿을 우선함.
 > workflow 는 하위 저장소에서 끌어쓸 수 있게 정의되어 있음.
 
-## Github Label 세팅
-
-### Label 이란?
-
-- Issue, PR 에 붙여서 분류하기 위한 이름표
-
-### Github 액세스 토큰 발급
-
-[https://github.com/settings/tokens](https://github.com/settings/tokens)
-
-- `Generate new token` 클릭
-- 원하는 이름 입력
-- `scopes`에서 repo 선택
-
-![](./images/new-personal-access-token.png)
-
-### Label 정의하기
-
-- `labels.json` 파일에 JSON Array 형태로 정의
-- `name`, `color`, `description` 을 정의할 수 있음
-
-```json
-[
-  {
-    "name": "status/critical",
-    "color": "8c001a",
-    "description": "우선순위 긴급"
-  }
-]
-```
-
-### 정의 된 Label 적용하기
-
-- `액세스 토큰`, `계정명`, `저장소 이름`을 자신의 것으로 변경
-
-```sh
-npx github-label-sync --access-token [액세스 토큰] --labels labels.json [계정명]/[저장소 이름]
-```
-
-### Label 설정 적용 전
-
-![](images/before-apply-labels.png)
-
-### Label 적용 후
-
-![](images/after-apply-labels.png)
-
 ---
 
 ## Issue Template
@@ -69,9 +22,9 @@ npx github-label-sync --access-token [액세스 토큰] --labels labels.json [�
 ---
 name: Hotfix Template
 about: Hotfix가 필요한 작업에 대한 템플릿입니다. 브랜치명은 hotfix/#number 로 맞춰주세요.
-title: "hotfix: "
-labels: "status/critical"
-assignees: ""
+title: 'hotfix: '
+labels: 'status/critical'
+assignees: ''
 ---
 
 ## 설명
@@ -123,7 +76,7 @@ jobs:
         with:
           username: ${{ inputs.username }}
         env:
-          GITHUB_TOKEN: "${{ secrets.token }}"
+          GITHUB_TOKEN: '${{ secrets.token }}'
 ```
 
 ### 하위 저장소에서 공유 workflow의 사용
@@ -139,13 +92,12 @@ jobs:
   call_example_action:
     uses: crepex/.github/.github/workflows/example.yml@main
     with:
-      username: "hey"
+      username: 'hey'
     secrets:
-      token: "${{ secrets.GITHUB_TOKEN }}"
+      token: '${{ secrets.GITHUB_TOKEN }}'
 ```
 
 # 참고
 
 - [organization-workflow](https://docs.github.com/en/actions/using-workflows/sharing-workflows-secrets-and-runners-with-your-organization)
-- [github-label-sync](https://github.com/Financial-Times/github-label-sync)
 - [Using templates to encourage useful issues and pull requests](https://docs.github.com/en/free-pro-team@latest/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)
