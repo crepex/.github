@@ -1,0 +1,17 @@
+name: Auto Label PRs
+
+on:
+  workflow_call:
+    secrets:
+      token:
+        required: true
+
+jobs:
+  call_action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: TimonVS/pr-labeler-action@v3
+        with:
+          configuration-path: .github/pr-labeler-config.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.token }}
