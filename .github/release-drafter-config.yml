@@ -29,5 +29,7 @@ template: |
 
   $CHANGES
 
+  ---
+
 footer: |
   **Full Changelog**: [$PREVIOUS_TAG...$RESOLVED_VERSION](https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...$RESOLVED_VERSION)
