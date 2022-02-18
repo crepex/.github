@@ -2,7 +2,7 @@
 
 > 이슈번호를 기재합니다.
 > https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue
-> 링크 참고해서 이슈 연결 및 종료 키워드 붙여주세요. e.g. Resolved #22
+> 링크 참고해서 이슈 연결 및 종료 키워드 붙여주세요. e.g. `Resolved #22`
 
 ## 작업사항 :memo:
 
