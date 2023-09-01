@@ -97,6 +97,27 @@ jobs:
       token: '${{ secrets.GITHUB_TOKEN }}'
 ```
 
+### 병합 후 브랜치 삭제 workflow의 사용
+
+- 설정은 `delete-merged-branch-config.yml` 에 정의됨.
+- pull request closed webhook 에 의해 작동
+
+```yml
+name: delete branch on close pr
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  delete-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: delete branch
+        uses: SvanBoxel/delete-merged-branch@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
 # 참고
 
 - [organization-workflow](https://docs.github.com/en/actions/using-workflows/sharing-workflows-secrets-and-runners-with-your-organization)

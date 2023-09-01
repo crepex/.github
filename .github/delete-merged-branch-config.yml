@@ -1,0 +1,3 @@
+exclude:
+  - development
+delete_closed_pr: true
